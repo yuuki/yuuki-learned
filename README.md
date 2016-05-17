@@ -1,2 +1,3 @@
 # yuuki
-study
+
+What I learned.
