@@ -80,6 +80,13 @@ BEGIN {
 - :no_good: upstreamサーバのさらに後ろにデータの入ったDBを用意する 
   - テスト実行ごとに用意するのではなく、stagingのDBでよいかもしれない
 
+### コンテナ化の例
+
+https://github.com/rrreeeyyy/nginx-behavior-test-example
+
+- Docker networkでVPCと同じアドレス帯をつくる
+- ELBをHAProxyで代替
+
 ## 参考
 
 - [Test::Nginxでnginxモジュールのテストを自動化する](http://qiita.com/cubicdaiya/items/36e10ed35848919dc05c)
