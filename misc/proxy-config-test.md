@@ -24,7 +24,7 @@
   - Perlの標準モジュール Test::More と HTTP::Tiny だけでテストコードを書く
   - サーバに入ってるデフォルトのPerlで動くため、CPANモジュールのインストールがいらない (ただし、Perl 5.14以上)
     - サーバ上でテストを実行しやすいため、サービスイン前に自動でテスト実行するなどの仕組みにのせやすい
-  - Rubyなど他の言語でもよい。ただし、Rspecのような学習コストがそれなりにあるフレームワークを使いたくなかった。PerlのTest::Moreは非常にシンプル
+  - Rubyなど他の言語でもよい。ただし、RSpecのような学習コストがそれなりにあるフレームワークを使いたくなかった。PerlのTest::Moreは非常にシンプル
 
 ```perl
 use Test::More;
@@ -82,7 +82,7 @@ BEGIN {
 
 ### コンテナ化の例
 
-https://github.com/rrreeeyyy/nginx-behavior-test-example
+[Docker と infrataster で nginx の振る舞いをテストする](http://heartbeats.jp/hbblog/2016/06/docker-infrataster-nginx.html]
 
 - Docker networkでVPCと同じアドレス帯をつくる
 - ELBをHAProxyで代替
@@ -95,3 +95,4 @@ https://github.com/rrreeeyyy/nginx-behavior-test-example
 - [nginxをdockerで動かす時のTips 3選](http://heartbeats.jp/hbblog/2014/07/3-tips-for-nginx-on-docker.html)
 - [100行あったmod_rewirteを ngx_mrubyで書き換えた話](https://speakerdeck.com/buty4649/100xing-atutamod-rewirtewo-ngx-mrubydeshu-kihuan-etahua)
 - [Infratasterでリバースプロキシのテストをする](http://techlife.cookpad.com/entry/2014/11/19/151557)
+- [Docker と infrataster で nginx の振る舞いをテストする](http://heartbeats.jp/hbblog/2016/06/docker-infrataster-nginx.html]
