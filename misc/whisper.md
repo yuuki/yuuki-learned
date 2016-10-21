@@ -5,7 +5,7 @@ whisper (Graphite)
 
 - file_update関数 1 datapoint書き込む https://github.com/graphite-project/whisper/blob/b7dbc7c/whisper.py#L525
 - 最も高精度なarchiveに書き込む https://github.com/graphite-project/whisper/blob/b7dbc7c/whisper.py#L545-L562
-  - 切りの良いインターバルを計算 secondsPerPointははてなの場合60 https://github.com/graphite-project/whisper/blob/b7dbc7c/whisper.py#L546
+  - 切りの良いインターバルを計算  https://github.com/graphite-project/whisper/blob/b7dbc7c/whisper.py#L546
   - 書き込む領域へオフセット計算してseekする。 https://github.com/graphite-project/whisper/blob/b7dbc7c/whisper.py#L552-L562
 - 精度の高いarchive順に丸めた値を書き込む https://github.com/graphite-project/whisper/blob/b7dbc7c/whisper.py#L564-L569
 - __propagate関数: 自動丸めする https://github.com/graphite-project/whisper/blob/b7dbc7c/whisper.py#L432
