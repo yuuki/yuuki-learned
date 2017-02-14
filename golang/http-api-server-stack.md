@@ -88,6 +88,10 @@ interfaceを使う。
 個人的には、小さなアプリケーションならglobal変数を使って、中規模以上であれば、dependency injection使うと良さそう。
 Using an interface の章のように、DBオブジェクトにinterfaceを通してアクセスするするようにして、前述のinterfaceを使ったテストができるようにしておくとよい。
 
+## logger
+
+標準 logger を使えばよい。https://godoc.org/log 。warningとかcriticalとか出し分けても結局意味がないことが多い。
+
 ## vendoring
 
 よく使われている [glide](https://glide.sh/)を使っている。[dep](https://github.com/golang/dep) はまだ様子見。vendorディレクトリ以下をリポジトリに含むべきかは結論がでていない。いれたら負けだと思ってたけど、最近は諦めて含めばいいのではという気もしている。
