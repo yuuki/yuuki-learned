@@ -48,6 +48,32 @@ errorsの代わりに[pkg/errors](https://github.com/pkg/errors)を使う。通�
 
 ### Table Driven Tests
 
+https://github.com/golang/go/wiki/TableDrivenTests
+
+以下のように `desc` メンバー変数を生やして、個々のテストケースに説明をつけたりしている。
+
+```go
+func TestFlagParser(t *testing.T) {
+    flagtests = []struct {
+        desc string
+        in  string
+        out string
+    }{
+        {"一番単純なケース", "%a", "[%a]"},
+        {"'-'をつける", "%-a", "[%-a]"},
+        {"'+'をつける", "%+a", "[%+a]"},
+    }
+
+    var flagprinter flagPrinter
+    for _, tt := range flagtests {
+        s := Sprintf(tt.in, &flagprinter)
+        if s != tt.out {
+            t.Errorf("Sprintf(%q, &flagprinter) => %q, want %q", tt.in, s, tt.out)
+        }
+    }
+}
+```
+
 ### データベースのモックテスト
 
 interfaceを使う。
@@ -57,10 +83,11 @@ interfaceを使う。
 
 ## DB接続など永続化したオブジェクトのハンドリング
 
+だいたい [Practical Persistence in Go: Organising Database Access](http://www.alexedwards.net/blog/organising-database-access) に倣う。
+冒頭に、dependency injectionか、global変数を使うか、コネクションプールのポインタを[context](https://godoc.org/context)に埋め込むかとある。
+個人的には、小さなアプリケーションならglobal変数を使って、中規模以上であれば、dependency injection使うと良さそう。
+Using an interface の章のように、DBオブジェクトにinterfaceを通してアクセスするするようにして、前述のinterfaceを使ったテストができるようにしておくとよい。
 
 ## vendoring
 
-よく使われている [glide](https://glide.sh/)を使っている。[dep](https://github.com/golang/dep) はまだ様子見。
-
-## Makefile
-
+よく使われている [glide](https://glide.sh/)を使っている。[dep](https://github.com/golang/dep) はまだ様子見。vendorディレクトリ以下をリポジトリに含むべきかは結論がでていない。いれたら負けだと思ってたけど、最近は諦めて含めばいいのではという気もしている。
